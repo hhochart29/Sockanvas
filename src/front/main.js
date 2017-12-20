@@ -1,32 +1,32 @@
-require('./styles/main.scss');
+require('./styles/main.scss')
 
-import io from 'socket.io-client';
+import io from 'socket.io-client'
 
-const socket = io('http://172.16.61.66:1337'); //home
+window.socket = io('http://192.168.0.11:1337') //home
 // const socket = io('http://192.168.1.27:1337');
 
-socket.on('connect', (client) => {
-    socket.emit('emitURL', window.location.pathname);
+window.socket.on('connect', (client) => {
+  window.socket.emit('emitURL', window.location.pathname)
 
-    let type = '';
-    if (navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i)) {
-        type = 'device';
-    } else {
-        type = 'desktop';
-    }
-    socket.emit('clientConnect', {id: socket.id, type: type});
-});
+  let type = ''
+  if (navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i)) {
+    type = 'device'
+  } else {
+    type = 'desktop'
+  }
+  window.socket.emit('clientConnect', {id: window.socket.id, type: type})
+})
 
 /*
 * Debug to display informations about a client / clients
 */
-socket.on('displayClientInfo', (clientDebug) => {
-    console.log(clientDebug);
-});
+window.socket.on('displayClientInfo', (clientDebug) => {
+  console.log(clientDebug)
+})
 
 /*
 * Redirect to the desired URL
 * */
-socket.on('redirect', (url) => {
-    window.location.href = window.location.origin + url;
-});
+window.socket.on('redirect', (url) => {
+  window.location.href = window.location.origin + url
+})
