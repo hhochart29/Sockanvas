@@ -19,8 +19,7 @@ module.exports = {
         path: path.resolve(__dirname, 'dist')
     },
     module: {
-        rules: [
-            {
+        rules: [{
                 test: /\.scss$/,
                 use: [{
                     loader: "style-loader" // creates style nodes from JS strings
@@ -36,6 +35,16 @@ module.exports = {
                     'file-loader'
                 ]
             },
+            {
+                test: /\.js$/,
+                exclude: /(node_modules|bower_components)/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['es2016']
+                    }
+                },
+            }
         ]
     },
     plugins,

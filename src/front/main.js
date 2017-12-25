@@ -1,30 +1,30 @@
+import socketConnection from './socket'
 require('./styles/main.scss')
 
-import socket from './socket'
-console.log(socket.instance.setConnection())
+console.log(socketConnection)
 
-// socketConnection.c.on('connect', (client) => {
-//   socketConnection.c.emit('emitURL', window.location.pathname)
-//
+// instance.on('connect', (client) => {
+//   instance.emit('emitURL', window.location.pathname)
+
 //   let type = ''
 //   if (navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i)) {
 //     type = 'device'
 //   } else {
 //     type = 'desktop'
 //   }
-//   socketConnection.c.emit('clientConnect', {id: socketConnection.c.id, type: type})
+//   instance.emit('clientConnect', {id: instance.id, type: type})
 // })
-//
+
 // /*
 // * Debug to display informations about a client / clients
 // */
-// socketConnection.c.on('displayClientInfo', (clientDebug) => {
+// instance.on('displayClientInfo', (clientDebug) => {
 //   console.log(clientDebug)
 // })
-//
+
 // /*
 // * Redirect to the desired URL
 // * */
-// socketConnection.c.on('redirect', (url) => {
+// instance.on('redirect', (url) => {
 //   window.location.href = window.location.origin + url
 // })
