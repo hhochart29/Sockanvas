@@ -1,5 +1,8 @@
 import {socketConnection} from './socket'
 
+console.log(socketConnection)
+
+
 let deltaY
 let startX
 let startY
@@ -12,8 +15,6 @@ let deltaTime
 let speed
 let angle
 let data = {}
-
-console.log(socketConnection)
 
 // On appel chaque évènement liés au touché de l'écran
 // window.addEventListener('touchstart', handleStart, false)
