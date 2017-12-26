@@ -1,4 +1,3 @@
 import io from 'socket.io-client'
 
-const socketConnection = io('http://127.0.0.1:1337')
-export default socketConnection
+export const socketConnection = io('http://192.168.1.15:1337')
