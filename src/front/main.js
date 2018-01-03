@@ -1,9 +1,7 @@
+import io from 'socket.io-client'
 require('./styles/main.scss')
 
-import io from 'socket.io-client'
-
-window.socket = io('http://192.168.0.11:1337') //home
-// const socket = io('http://192.168.1.27:1337');
+window.socket = io('http://192.168.0.11:1337')
 
 window.socket.on('connect', (client) => {
   window.socket.emit('emitURL', window.location.pathname)
