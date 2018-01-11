@@ -7,6 +7,7 @@ body {
 	background: brown;
 	font-family: Roboto, serif;
 	color: white;
+	overflow: hidden;
 }
 
 h1 {
@@ -150,3 +151,19 @@ img {
 	max-width: 100%;
 }
 
+.popup {
+	display: block;
+	background-color: #d1d3b2;
+	color: white;
+	position: absolute;
+	bottom: 15px;
+	width: 70%;
+	left: 15%;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	text-align: center;
+	font-family: Roboto, serif;
+	padding: 20px;
+	font-size: 25px;
+}

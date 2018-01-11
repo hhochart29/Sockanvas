@@ -37,6 +37,7 @@ const modal = document.getElementById('myModal')
 const resultat = document.querySelector('.resultat')
 const panel = document.querySelectorAll('.score')
 const span = document.getElementsByClassName('close')[0]
+const spanp = document.querySelector('.modal-content p')
 span.onclick = () => {
   modal.style.display = 'none'
 }
@@ -82,10 +83,9 @@ const mouse = new THREE.Vector2()
 
 export const handleClick = (speedParam, angleParam) => {
 
-  const speed = 4 * parseInt(speedParam)
-  const angle = parseInt(angleParam)
+  const speed = 5 * parseInt(speedParam)
+  const angle = - parseInt(angleParam)
 
-  console.log('fonction handleclick declenche')
   raycaster.setFromCamera(mouse, camera)
   const intersects = raycaster.intersectObjects(game.group.children)
 
@@ -211,11 +211,13 @@ const animate = timestamp => {
     document.getElementById('imgJ2').src = Bottle
   }
   if (hsl <= 360) {
+    document.querySelector('.popup').style.backgroundColor = `hsl(${hsl},30%,60%)`
+
     document.querySelectorAll('.score').forEach(c => {
       c.style.backgroundColor = `hsl(${hsl},30%,60%)`
     })
     modal.style.backgroundColor = `hsl(${hsl},50%,80%)`
-    span.style.color = `hsl(${hsl},50%,80%)`
+    spanp.style.color = `hsl(${hsl},50%,80%)`
     hsl += 0.5
   } else {
     hsl = 0
