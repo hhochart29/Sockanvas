@@ -90,7 +90,7 @@ export const handleClick = (speedParam, angleParam) => {
   const intersects = raycaster.intersectObjects(game.group.children)
 
   if (angle >= -4 && angle <= 4 && speed >= game.z * 2 - 10 && speed <= game.z * 2 + 10) {
-    // yDestination = 8;
+    // yDestination = 8;`
     win = true
     TweenMax.to(game.balle.position, 0.9, {
       x: '0',
