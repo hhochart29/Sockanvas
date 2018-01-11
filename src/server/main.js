@@ -20,6 +20,7 @@ app.set('twig options', {
 
 // Gestion du routing
 app.get('/', (req, res) => {
+  console.log('client o n / ')
   const ua = req.headers['user-agent']
   let device = /mobile/i.test(ua)
   console.log(device)
