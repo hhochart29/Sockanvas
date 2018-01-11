@@ -11,6 +11,12 @@ import Table from './table'
 import Lights from './lights'
 import Particles from './particles'
 
+// Image import
+import Best from '../img/best.png'
+import Bottle from '../img/bottleCap.png'
+import Sad from '../img/sad.png'
+import Wait from '../img/wait.png'
+
 // attach orbit controls to THREE
 // const OrbitControls = threeOrbitControls(THREE);
 
@@ -162,7 +168,7 @@ const handleClick = e => {
       if (win == true && game.balle.position.z < 0) {
 
         document.getElementById('resultat').innerHTML = 'Dans le mille !'
-        document.getElementById('imgResultat').src = './img/best.png'
+        document.getElementById('imgResultat').src = Best
         resultat.style.display = 'block'
 
         const timeout2 = setTimeout(() => {
@@ -177,7 +183,7 @@ const handleClick = e => {
       } else if (win == true && game.balle.position.z > 0) {
 
         document.getElementById('resultat').innerHTML = 'Dans le mille !'
-        document.getElementById('imgResultat').src = './img/best.png'
+        document.getElementById('imgResultat').src = Best
         resultat.style.display = 'block'
         const timeout2 = setTimeout(() => {
           document.getElementById('resultat').innerHTML = ''
@@ -190,7 +196,7 @@ const handleClick = e => {
       } else {
 
         document.getElementById('resultat').innerHTML = 'Oups, raté...'
-        document.getElementById('imgResultat').src = './img/sad.png'
+        document.getElementById('imgResultat').src = Sad
         resultat.style.display = 'block'
         const timeout2 = setTimeout(() => {
           document.getElementById('resultat').innerHTML = ''
@@ -247,13 +253,13 @@ const animate = timestamp => {
   if (game.balle.position.z == game.z) {
     document.getElementById('indicationJ1').innerHTML = 'À ton tour'
     document.getElementById('indicationJ2').innerHTML = 'En attente'
-    document.getElementById('imgJ1').src = './img/bottleCap.png'
-    document.getElementById('imgJ2').src = './img/wait.png'
+    document.getElementById('imgJ1').src = Bottle
+    document.getElementById('imgJ2').src = Wait
   } else if (game.balle.position.z == -game.z) {
     document.getElementById('indicationJ2').innerHTML = 'À ton tour'
     document.getElementById('indicationJ1').innerHTML = 'En attente'
-    document.getElementById('imgJ1').src = './img/wait.png'
-    document.getElementById('imgJ2').src = './img/bottleCap.png'
+    document.getElementById('imgJ1').src = Wait
+    document.getElementById('imgJ2').src = Bottle
   }
   if (hsl <= 360) {
     document.querySelectorAll('.score').forEach(c => {

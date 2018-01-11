@@ -22,7 +22,7 @@ app.set('twig options', {
 app.get('/', (req, res) => {
   const ua = req.headers['user-agent']
   let device = /mobile/i.test(ua)
-
+  console.log(device)
   if (device === true && device !== null) {
     res.render('device.html.twig', {})
   } else if (device === false && device !== null) {
