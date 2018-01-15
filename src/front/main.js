@@ -2,7 +2,7 @@ import io from 'socket.io-client'
 
 require('./styles/main.scss')
 
-window.socket = io('http://192.168.1.49:1337')
+window.socket = io('http://192.168.1.55:1337')
 
 window.socket.on('connect', (client) => {
   window.socket.emit('emitURL', window.location.pathname)
