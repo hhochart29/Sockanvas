@@ -83,8 +83,8 @@ const mouse = new THREE.Vector2()
 
 export const handleClick = (speedParam, angleParam) => {
 
-  const speed = 5 * parseInt(speedParam)
-  const angle = - parseInt(angleParam)
+  const speed = 10 * parseInt(speedParam)
+  const angle = -parseInt(angleParam)
 
   raycaster.setFromCamera(mouse, camera)
   const intersects = raycaster.intersectObjects(game.group.children)
@@ -126,10 +126,11 @@ export const handleClick = (speedParam, angleParam) => {
         document.getElementById('resultat').innerHTML = ''
         resultat.style.display = 'none'
       }, 2500)
-
       scoreJ1++
+
       if (scoreJ1 === 5) modal.style.display = 'block'
       document.getElementById('j1').innerHTML = scoreJ1 / 5
+      window.socket.emit('deviceScore', 'j1', scoreJ1 / 5)
 
     } else if (win === true && game.balle.position.z > 0) {
 
@@ -141,8 +142,10 @@ export const handleClick = (speedParam, angleParam) => {
         resultat.style.display = 'none'
       }, 2500)
       scoreJ2++
+
       if (scoreJ2 === 5) modal.style.display = 'block'
       document.getElementById('j2').innerHTML = scoreJ2 / 5
+      window.socket.emit('deviceScore', 'j2', scoreJ2 / 5)
 
     } else {
 
