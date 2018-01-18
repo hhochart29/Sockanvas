@@ -109,7 +109,6 @@ io.on('connection', socket => {
   })
 
   socket.on('deviceScore', (player, score) => {
-    console.log('device scoooored ' + player + score)
     io.to('devices').emit('deviceUpdateScore', player, score)
   })
 
